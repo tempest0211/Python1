@@ -1,2 +1,13 @@
 # Python1
-use the random import and loop to study
+#use the random import and loop to study
+
+from random import*
+count=0
+for i in range(1,51):
+    time=randrange(5,51)
+    if 5<=time<15:
+        print("[0] {0} Guest accepted.(Require time {1}".format(i,time))
+        count+=1
+    else:
+        print("[X] {0} Guest declined.(Require time {1}".format(i,time))
+print("Total Guest accepted is : {0}".format(count))
