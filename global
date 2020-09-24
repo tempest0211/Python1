@@ -5,6 +5,12 @@ def nightshift(soldiers):
     gun=gun-soldiers
     print("number of lefted gun : {}".format(gun))
 
+def nightshift_ret(gun, soldiers):
+    gun=gun-soldiers
+    print("number of lefted gun : {}".format(gun))
+    return gun
+
 print("total number of gun : {}".format(gun))
-nightshift(2) # usually 2 people goes for nightshift
+#nightshift(2) # usually 2 people goes for nightshift
+gun=nightshift_ret(gun,2)
 print("Number of lefted gun : {}".format(gun))
