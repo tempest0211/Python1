@@ -1,0 +1,22 @@
+#Program that finds the standard weight of different gender
+
+#Standard weight : weight based on people's hight
+# formula : for Man = hight(m) x hight(m) x 22
+#           for women =  hight(m) x hight(m) x 21
+
+def std_weight(height, gender) : #height in meter
+    if gender=="male"or"man":
+        return height*height*22
+    else:
+        return height*height*21
+#ex) male who has 175cm
+height=175
+gender="male"
+weight = round(std_weight(height/100,gender),2)
+print("For {}cm {}'s standard weight is {}. ".format(height, gender,weight))
+
+height=159
+gender="female"
+weight = round(std_weight(height/100,gender),2)
+print("For {}cm {}'s standard weight is {}. ".format(height, gender,weight))
+
