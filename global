@@ -1,0 +1,10 @@
+gun=10
+
+def nightshift(soldiers):
+    global gun #use the gun out of the function
+    gun=gun-soldiers
+    print("number of lefted gun : {}".format(gun))
+
+print("total number of gun : {}".format(gun))
+nightshift(2) # usually 2 people goes for nightshift
+print("Number of lefted gun : {}".format(gun))
