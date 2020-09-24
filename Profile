@@ -1,0 +1,15 @@
+def profile1(name, age, main_lang):#for 2 different people
+    print(("Your name is : {}\tYour age is : {}\tYour main language is : {}")\
+        .format(name, age, main_lang))
+
+profile1("Brown",20,"Python")
+profile1("nie",19,"Java")
+
+#for people with same age, same lang
+
+def profile2(name, age=17, main_lang="Python"):
+    print(("Your name is : {}\tYour age is : {}\tYour main language is : {}")\
+        .format(name, age, main_lang))
+
+profile2("Coo")
+profile2("Kie")
