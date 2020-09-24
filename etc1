@@ -1,0 +1,22 @@
+print("Python","Java","JavaScript",sep=", ")# end="?")
+print("which one will be useful?")
+
+import sys
+print("Python","Java","JavaScript",file=sys.stdout) 
+#stdout:standard out
+print("Python","Java","JavaScript",file=sys.stderr)
+#stderr:standard error
+
+scores = {"MAT" :0,"ENG":50,"SCI":100}
+for subject, score in scores.items():
+    #print(subject,score)
+    print(subject.ljust(4),str(score).rjust(4), sep=":")
+
+# waiting ticket
+# 001,002,003, ...
+for num in range(1,21):
+    print("Your witing number is :" +str(num).zfill(3))
+
+answer=input("Please write random number : ")
+#when we get input, it saves as string!
+print("the number that you put is "+answer)
