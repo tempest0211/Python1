@@ -1,0 +1,39 @@
+score_file1=open("score.txt","w",encoding="utf8")
+#utf8 file makes korean words to come out clearly
+# "w"< you can write stuff in it
+print("Your Math Score : 0",file=score_file1)
+print("Your English score : 50",file=score_file1)
+score_file1.close()
+
+score_file2=open("score.txt","a",encoding="utf8")
+# add data to previous document by using "a"
+score_file2.write("Your Science Score : 80")
+score_file2.write("\nYour Computer Score : 100\n")
+score_file2.close()
+
+score_file=open("score.txt","r",encoding="utf8")
+#bring the data from the previous document by using "r"
+print(score_file.read())
+score_file.close()
+
+score_file=open("score.txt","r",encoding="utf8")
+print(score_file.readline(),end="")#read by sentece, then curser move to next line
+print(score_file.readline(),end="")
+print(score_file.readline(),end="")
+print(score_file.readline(),end="")
+score_file.close()
+
+score_file = open("score.txt","r",encoding="utf8")
+while True: # what if we don't know how much datas on the txt file
+    line=score_file.readline()
+    if not line:
+        break
+    print(line, end="")
+score_file.close()
+
+score_file = open("score.txt","r",encoding="utf8")
+lines=score_file.readlines() # bring all the data and save it as list
+for line in lines:
+    print(line, end="")
+
+    score_file.close()
