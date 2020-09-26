@@ -1,0 +1,14 @@
+import pickle
+profile_file=open("profile.pickle","wb")
+#w<for write, b< for binary, pickle can be only used in binary
+profile={"name" : "Jack","Age" : 25, "Hobby":["Coding","Music","play with my cat"]}
+print(profile)
+pickle.dump(profile, profile_file)
+profile_file.close()
+
+ #now getting data from pickle
+profile_file=open("profile.pickle","rb")
+#getting data from file, and move that to profile
+profile=pickle.load(profile_file) 
+print(profile)
+profile_file.close()
