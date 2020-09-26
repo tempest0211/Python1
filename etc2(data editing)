@@ -1,0 +1,19 @@
+# filled the space area as space, right margin, getting 10 space
+print("{0:>10}".format(500))
+# postive numb for +, negative numb for -
+print("{0:>+10}".format(500))
+print("{0:>+10}".format(-500))
+# left margin, filled the space area with _
+print("{0:_<+10}".format(500))
+# , every three time
+print("{0:,}".format(1000000000))
+# , every three time, add + and -
+print("{0:+,}".format(1000000000))
+print("{0:+,}".format(-1000000000))
+# , every three time, add + and -, add more space
+# filled empty place with ^^
+print("{0:^<+30,}".format(1000000000000000))
+# print 0.0000000000
+print("{0:f}".format(5/3))
+# round the number 0.00
+print("{0:.2f}".format(5/3))
