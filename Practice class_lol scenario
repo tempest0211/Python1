@@ -1,0 +1,27 @@
+#League of legned scenario
+class unit:
+    def __init__(self,name,position,hp,damage):
+    
+        self.name = name
+        self.position = position
+        self.hp = hp
+        self.damage = damage
+        print("You choose champion {}.".format(self.name))
+        print("{} is {}.".format(self.name,self.position))
+        print("{} has {} hp, and basic damage is {}.\n".format(self.name,self.hp,self.damage))
+
+soraka=unit("Soraka","Supporter",320,40)
+class UnitSkill:
+    def __init__(self,name,position,hp,damage):
+        
+        self.name = name
+        self.position = position
+        self.hp = hp
+        self.damage = damage
+
+    def skills(self,name, cost, skilltype):
+        print("{}: use {} mana to spell {}.".format(self.name,cost,skilltype))
+
+Malzahar=unit("Malzahar","Mage",350,40)
+Malzahar=UnitSkill("Malzahar","Mage",350,40)
+Malzahar.skills("Malzahar",40,"Flair")
