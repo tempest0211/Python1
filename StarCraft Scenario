@@ -1,0 +1,138 @@
+from random import*
+#Basic Unit
+class unit:
+    def __init__(self,name,hp,speed):
+        self.name = name
+        self.hp = hp
+        self.speed=speed
+        print("{} unit is created.".format(name))
+    
+    def move(self,location):
+        print("{} : move towards {} with {} speed".format(self.name, location, self.speed))    
+
+    def damaged(self, damage):
+        print("{} : got {} damaged.".format(self.name, damage))
+        self.hp-=damage
+        print("{} : Current hp is {}.".format(self.name,self.hp))
+        if self.hp<=0:
+            print("{} : is desotroyed".format(self.name))
+#Offense unit
+class AttackUnit(unit):
+    def __init__(self, name, hp,speed, damage):
+        unit.__init__(self,name,hp,speed)
+        self.damage=damage
+
+    def attack(self,location):
+        print("{}:{} side attack the enemy. [damage : {}]".format(self.name,location,self.damage))
+
+
+#Marine
+class Marine(AttackUnit):
+    def __init__(self):
+        AttackUnit.__init__(self,"Marine",40,1,5)
+        #stim pack : increase attack speed and movement speed, decrease 10hp
+    def stimpack(self):
+        if self.hp>10:
+            self.hp-=10
+            print("{} : use stimpack.(10 hp decreasing)".format(self.name))
+        else:
+            print("{} : not able to use stimpack".format(self.name))
+#Tank
+class Tank(AttackUnit):
+         #seize_developed
+    seize_developed = False
+    def __init__(self):
+           AttackUnit.__init__(self,"tank",150,1,35)
+           self.seize_mode=False
+    def set_seize_mode(self):
+        if Tank.seize_developed == False:
+            return
+        # seize mode is not on
+        if self.seize_mode == False:
+            print("{} : transform into seize mode.".format(self.name))
+            self.damage *=2
+            self.seize_mode = True
+        # seize mode is on
+        else:
+            print("{} : transform into baisc mode.".format(self.name))
+            self.seize_mode=False
+
+
+#Flying class
+class Flyable:
+    def __init__(self,flying_speed):
+          self.flying_speed=flying_speed
+        
+    def fly(self, name, location):
+        print("{}:flying towards {} with {} speed.".format(name,location,self.flying_speed))
+
+#flying class
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self,name,hp,0,damage)
+        Flyable.__init__(self,flying_speed)
+    
+    def move(self,location):
+        self.fly(self.name,location)
+
+class Wraith(FlyableAttackUnit):
+    def __init__(self):
+        FlyableAttackUnit.__init__(self,"Wraith",80,20,5)
+        self.clocked = False 
+    def clocking(self):
+        if self.clocked == True:
+            print("{} : clocking mode is off".format(self.name))
+            self.clocked=False
+        else:
+            print("{} : clocking mode is on".format(self.name))
+            self.clocked=True
+def game_start():
+    print("[Notice] new game is starting now")
+def game_over():
+    print("Player : gg")
+    print("[Player] is off the game")
+#new game start
+game_start()
+# 3 Marine creating
+m1=Marine()
+m2=Marine()
+m3=Marine()
+#2tanks creating
+t1=Tank()
+t2=Tank()
+#1 wraith creating
+w1=Wraith()
+
+# unit contorl
+attack_units=[]
+attack_units.append(m1)
+attack_units.append(m2)
+attack_units.append(m3)
+attack_units.append(t1)
+attack_units.append(t2)
+attack_units.append(w1)
+
+# move all 
+for unit in attack_units:
+    unit.move("East")
+#Seize developmet
+Tank.seize_developed = True
+print("[Notice] Seize mode is ready for Tank")
+
+#ready to attack
+for unit in attack_units:
+    if isinstance(unit, Marine):
+        unit.stimpack()
+    elif isinstance(unit,Tank):
+        unit.set_seize_mode()
+    elif isinstance(unit,Wraith):
+        unit.clocking()
+#attacking
+for unit in attack_units:
+    unit.attack("East")
+#damage
+for unit in attack_units:
+    unit.damaged(randint(5,21)) #5~20 random damage
+
+# game over
+game_over()
