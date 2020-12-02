@@ -1,0 +1,49 @@
+#Practice for Class
+#Without class
+#Starcraft Senario
+"""
+#For marin
+name = "marin" # name of the unit
+hp = 40 # unit's hp
+damage = 5 # units attack damage
+
+print("{} unit is created.".format(name))
+print("Unit's hp is {}, and attak damage is {}\n".format(hp,damage))
+
+#For tank
+tank_name = "tank" # name of the unit
+tank_hp = 150 # unit's hp
+tank_damage = 35 # units attack damage
+
+print("{} unit is created.".format(tank_name))
+print("Unit's hp is {}, and attak damage is {}\n".format(tank_hp,tank_damage))
+
+#For tank2
+tank2_name = "tank2" # name of the unit
+tank2_hp = 150 # unit's hp
+tank2_damage = 35 # units attack damage
+
+print("{} unit is created.".format(tank2_name))
+print("Unit's hp is {}, and attak damage is {}\n".format(tank2_hp,tank2_damage))
+
+def attack(name, location, damage):
+    print("{} : {} side attack anamy. [damage {}]".format(name, location, damage))
+
+attack(name, "north", damage)
+attack(tank_name, "north", tank_damage)
+attack(tank2_name, "north", tank2_damage)"""
+
+class unit:
+    def __init__(self,name,hp,damage):
+        #__ xx __ 
+        # need to have name, hp, and damage
+        # require all 3
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+        print("{} unit is created".format(self.name))
+        print("hp {}, attack damage {}".format(self.hp, self.damage))
+
+marine1 = unit("marin",40,5)
+marine2 = unit("marin",40,5)
+tank= unit("tank",150,35)
