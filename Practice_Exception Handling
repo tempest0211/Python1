@@ -1,0 +1,37 @@
+'''
+#division from all numbers
+try:
+    print("dividing calculator")
+    nums=[]
+    nums.append(int(input("Please put your first value : ")))
+    nums.append(int(input("Please put your second value : ")))
+    #nums.append(int(nums[0]/nums[1]))
+    print("{}/{}={}".format(nums[0],nums[1],nums[2]))
+except ValueError:
+    print("Error! you put wrong value")
+except ZeroDivisionError as err:
+    print(err)
+except Exception as err:
+    print("unkown error occurs")
+    print(err)'''
+
+class BigNumberError(Exception):
+    def __init__(self,msg):
+         self.msg=msg
+    def __str__(self):
+        return self.msg       
+#division from 1~9 
+try:
+    print("dividing calculator")
+    num1=int(input("Please put your first value : "))
+    num2=int(input("Please put your second value : "))
+    if num1>=10 or num2>=10:
+        raise BigNumberError("typed : {}, {}".format(num1,num2))
+    print("{}/{} = {}".format(num1,num2,int(num1/num2)))
+except ValueError:
+    print("You put wrong Error. Please put one degit number")
+except BigNumberError as err:
+    print("error occured. Please type only one digit number")
+    print(err)
+finally:
+    print("thanks for using our calculator")
